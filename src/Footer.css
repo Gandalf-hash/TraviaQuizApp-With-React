@@ -3,4 +3,5 @@
     justify-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 5vh;
+    border-top: 5px solid rgb(12, 64, 167);
 }

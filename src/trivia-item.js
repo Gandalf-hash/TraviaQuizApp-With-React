@@ -1,4 +1,7 @@
-const triviaItems = [
+import he from 'he';
+import TriviaItem from './TriviaItem';
+
+let triviaItems = [
     {
         "category": "Entertainment: Board Games",
         "type": "multiple",
@@ -60,17 +63,17 @@ const triviaItems = [
         ]
         },
         {
-            "category": "General Knowledge",
-            "type": "multiple",
-            "difficulty": "medium",
-            "question": "What is the romanized Russian word for &quot;winter&quot;?",
-            "correct_answer": "Zima",
-            "incorrect_answers": [
-            "Leto",
-            "Vesna",
-            "Osen&#039;"
+        "category": "Entertainment: Music",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In 2015, David Hasselhof released a single called...",
+        "correct_answer": "True Survivor",
+        "incorrect_answers": [
+        "True Fighter",
+        "Real Kung-Fury",
+        "Real Warrior"
             ]
-            },
+        },
         {
         "category": "Entertainment: Board Games",
         "type": "multiple",
@@ -118,7 +121,16 @@ const triviaItems = [
         "197",
         "177"
         ]
-        }
-]
+        },
+];
+// removing the empersands in the questions and answers as well
+    triviaItems = triviaItems.map((item) => {
+        return {
+            ...item,
+            question: he.decode(item.question),
+            correct_answer: he.decode(item.correct_answer),
+            incorrect_answers: item.incorrect_answers.map(incorrect => he.decode(incorrect))
+        };
+    });
 
 export default triviaItems;
