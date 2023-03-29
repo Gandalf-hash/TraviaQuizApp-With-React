@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Create React App.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 [React App - http_localhost_3000.webm](https://user-images.githubusercontent.com/53972152/228493922-83bbc3e6-1b2f-49c5-97e0-3a6fa725c419.webm)
