@@ -1,9 +1,10 @@
 import Stats from "./Stats";
-import TriviaItem from "./TriviaItem";
-import EndScreen from "./Endscreen";
+import TriviaItem from "./TriviaItem.js";
+import EndScreen from "./Endscreen.js";
 import { useState } from "react";
-import triviaItems from "./trivia-item";
+import triviaItems from "./trivia-item.js";
 import "./Game.css";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Game() {
     const [gameState, setGameState] = useState({
@@ -43,27 +44,37 @@ function Game() {
     }
     
     let pageContent;
+    let pageKey;
     
     if(isGameOver) 
     {
-    pageContent = <EndScreen score={score} bestScore={0} onRetryClick={onRestartGame}/>;
-    } else
-    {
-    const triviaQuestion = triviaItems[triviaIndex];
-    const {correct_answer, incorrect_answers, question} = triviaQuestion;
-    pageContent = (<TriviaItem key={triviaIndex} question={question}
-    correctAnswer={correct_answer} 
-    incorrectAnswer={incorrect_answers}
-    onNextClick={onLoadNextQuestion} 
-    onAnswerSelected={onAnswerSelected}/>);
+        pageKey = "EndScreen";
+        pageContent = <EndScreen score={score} bestScore={0} onRetryClick={onRestartGame}/>;
+    } else {
+        pageKey = triviaIndex;
+        const triviaQuestion = triviaItems[triviaIndex];
+        const {correct_answer, incorrect_answers, question} = triviaQuestion;
+        pageContent = (<TriviaItem key={triviaIndex} question={question}
+        correctAnswer={correct_answer} 
+        incorrectAnswer={incorrect_answers}
+        onNextClick={onLoadNextQuestion} 
+        onAnswerSelected={onAnswerSelected}/>);
     }
 
     return(
         <>
         <p className="center">(●'◡'●)</p>
         <Stats score={score} questionNumber={questionNumber} totalQuestion={numQuestions}/>
-        {pageContent}
+        <AnimatePresence mode='wait'>
+        <motion.div
+            key={pageKey}
+            initial={{opacity: 0, x: 75, transition: {ease: "easeOut"} }}
+            animate={{opacity: 1, x: 0}}
+            exit={{opacity: 0, x: -75, transition: {ease: "easeIn"} }}
+            transition={{duration: 0.5}}>{pageContent}</motion.div>
+        </AnimatePresence>
         </>
+        //Added animation using framer motin.
     )
 }
 export default Game;
