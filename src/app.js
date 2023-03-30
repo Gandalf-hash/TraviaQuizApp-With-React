@@ -8,7 +8,8 @@ import EndScreen from './Endscreen';
 function  App()  {
     return (
       <>
-      <Game />
+      <QuizPage/>
+      {/* <Game /> */}
 
 
 
