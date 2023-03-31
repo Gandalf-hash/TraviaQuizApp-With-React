@@ -2,11 +2,10 @@ import Stats from "./Stats";
 import TriviaItem from "./TriviaItem.js";
 import EndScreen from "./Endscreen.js";
 import { useState } from "react";
-import triviaItems from "./trivia-item.js";
 import "./Game.css";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Game() {
+function Game({ triviaItems }) {
     const [gameState, setGameState] = useState({
         score: 0,
         triviaIndex: 0,
