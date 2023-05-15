@@ -3,7 +3,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 
-[React App - http_localhost_3000.webm](https://user-images.githubusercontent.com/53972152/228493922-83bbc3e6-1b2f-49c5-97e0-3a6fa725c419.webm)
 
 ## Available Scripts
 
