@@ -14,14 +14,14 @@ async function readAllUsers() {
   try {
     const snapshort = await db.collection("users").get();
 
-    console.log(`Found ${snapshort.size} x user(s).`);
+    
     const doc = snapshort.docs;
     doc.forEach((docSnapshort) => {
-      console.log(docSnapshort.id, docSnapshort.data());
+      
     });
 
   } catch(err) {
-    console.log(err);
+    
   }
 
 }

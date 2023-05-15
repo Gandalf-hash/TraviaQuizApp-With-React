@@ -73,7 +73,7 @@ function Game({ triviaItems }) {
             transition={{duration: 0.5}}>{pageContent}</motion.div>
         </AnimatePresence>
         </>
-        //Added animation using framer motin.
+        //Added animation using framer motion.
     )
 }
 export default Game;

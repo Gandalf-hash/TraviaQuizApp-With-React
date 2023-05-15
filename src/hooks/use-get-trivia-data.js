@@ -26,7 +26,7 @@ async function fetchJson(url) {
 }
 
 // Our 1st hook!
-function useGetTriviaData(amount = 10, difficulty = "") {
+function useGetTriviaData(amount = 50, difficulty = "") {
   const [quizFetch, setQuizFetch] = useState({
     isLoading: true,
     errorMessage: "",

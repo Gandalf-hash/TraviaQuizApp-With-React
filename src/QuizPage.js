@@ -6,7 +6,7 @@ import useGetTriviaData from './hooks/use-get-trivia-data';
 
 
 function QuizPage() {
- const [isLoading, errorMessage, data] = useGetTriviaData(5, "easy");
+ const [isLoading, errorMessage, data] = useGetTriviaData(50, "easy");
 
   let contents;
   if (isLoading)
